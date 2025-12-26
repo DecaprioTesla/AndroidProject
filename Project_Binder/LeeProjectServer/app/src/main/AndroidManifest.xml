@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LeeAndroidProject">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.LeeAndroidProject">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 添加绑定服务Activity -->
+        <activity
+            android:name=".BoundServiceActivity"
+            android:exported="false" />
+
+        <!-- 添加绑定服务 -->
+        <!-- 添加exported="true"允许其他应用绑定 -->
+        <service
+            android:name=".MyBoundService"
+            android:enabled="true"
+            android:exported="true">
+            <!-- 添加intent-filter以便其他应用发现 -->
+            <intent-filter>
+                <action android:name="com.example.leeandroidproject.MyAIDLService" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
